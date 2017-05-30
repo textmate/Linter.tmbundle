@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>zvxr@zvxrzpdhnvq.pbz</string>
+	<key>contactName</key>
+	<string>Mike McQuaid</string>
+	<key>description</key>
+	<string>Linter bundle</string>
+	<key>name</key>
+	<string>Linter</string>
+	<key>uuid</key>
+	<string>4A4ECE1D-B6CC-49BA-B8CD-B367A0F1C3AA</string>
+</dict>
+</plist>
