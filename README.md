@@ -9,6 +9,7 @@ Provides Linting functionality to TextMate to make it easier to write better qua
   - `LINTER_LINT_ON_SAVE` automatically runs Linter on save for supported file types
   - `LINTER_STRIP_WHITESPACE_ON_SAVE` automatically strips trailing whitespace on save
   - `LINTER_ENSURE_NEWLINE_ON_SAVE` automatically adds a training newline on save
+  - `LINTER_FIX_ON_SAVE` automatically fixes lints if possible (e.g. with RuboCop).
 
 ## Installation
 

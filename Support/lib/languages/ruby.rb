@@ -21,6 +21,7 @@ module Linter
   end
 
   def rubocop
+    fix = " --auto-correct" if ENV["LINTER_FIX_ON_SAVE"]
     rubocop_type_regex = %r{([WC]:) (\w+)/(\w+)}
     rubocop_docs_lambda = lambda do |match|
       rubocop_type_regex =~ match
@@ -34,7 +35,7 @@ module Linter
     {
       name: "RuboCop",
       version: `'#{which("rubocop")}' --version`,
-      output_command: "'#{which("rubocop")}' --format=emacs --display-cop-names",
+      output_command: "'#{which("rubocop")}' --format=emacs --display-cop-names#{fix}",
       line_column_match: /#{filepath}:(\d+):(\d+): /,
       extra_gsubs: {
         rubocop_type_regex => rubocop_docs_lambda,
