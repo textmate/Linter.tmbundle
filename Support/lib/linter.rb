@@ -61,7 +61,7 @@ module Linter
       markdown: { select: /text\.html\.markdown/ },
       ruby: {
         select: /source\.ruby/,
-        reject: /(source\.ruby\.embedded(\.haml)?|text\.html\.ruby)/,
+        reject: /(source\.ruby\.embedded(\.haml)?|text\.html\.(erb|ruby))/,
       },
     }
     language_selectors.each do |language, match|
