@@ -44,7 +44,7 @@ module Linter
     File.read(filepath).to_s.lines.each_with_index do |line, line_number|
       HEDGE_WORDS.each do |word|
         offset = 0
-        while (column = line.index(word, offset))
+        while (column = line.index(/(^|[^a-z])#{word}([^a-z]|$)/i, offset))
           matches << "L#{line_number + 1}:C#{column + 1} warning: used hedge word '#{word}'"
           offset = column + 1
         end
