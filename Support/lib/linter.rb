@@ -47,9 +47,7 @@ module Linter
       ensure_trailing_newline!
     end
 
-    if ENV["LINTER_LINT_ON_SAVE"]
-      lint(manually_requested: false)
-    end
+    lint(manually_requested: false) if ENV["LINTER_LINT_ON_SAVE"]
   end
 
   def lint(manually_requested: true)
@@ -108,11 +106,12 @@ module Linter
     all_settings.each do |settings|
       name = settings[:name]
       version = settings[:version].to_s.chomp
-      name_version = if version.empty?
-        settings[:name]
-      else
-        "#{name} #{version}"
-      end
+      name_version =
+        if version.empty?
+          settings[:name]
+        else
+          "#{name} #{version}"
+        end
       names_versions << name_version
     end
     names_versions = names_versions.join(", ")
@@ -130,11 +129,13 @@ module Linter
       end
 
       if (line_column_match = settings[:line_column_match])
-        output.gsub! line_column_match,
+        output.gsub! \
+          line_column_match,
           "<a href='txmt://open/?url=file://#{filepath}&line=\\1&column=\\2'>L\\1</a> "
       elsif (line_match = settings[:line_match])
-        output.gsub! line_match,
-                     "<a href='txmt://open/?url=file://#{filepath}&line=\\1'>L\\1</a>"
+        output.gsub! \
+          line_match,
+          "<a href='txmt://open/?url=file://#{filepath}&line=\\1'>L\\1</a>"
       end
 
       if (extra_gsubs = settings[:extra_gsubs])
