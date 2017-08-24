@@ -77,10 +77,11 @@ module Linter
       output(send(language))
     end
 
-    if !language_found && manually_requested
-      first_scope = tm_scope.split(" ").first
-      puts "Error: no Linter found for #{first_scope}! Please consider submitting a pull request to https://github.com/MikeMcQuaid/Linter.tmbundle to add one."
-    end
+    return if language_found
+    return unless manually_requested
+
+    first_scope = tm_scope.split(" ").first
+    puts "Error: no Linter found for #{first_scope}! Please consider submitting a pull request to https://github.com/MikeMcQuaid/Linter.tmbundle to add one."
   end
 
   def filepath
