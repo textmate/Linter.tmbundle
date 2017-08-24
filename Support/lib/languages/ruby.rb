@@ -21,7 +21,7 @@ module Linter
   end
 
   def rubocop
-    fix = " --auto-correct" if ENV["LINTER_FIX_ON_SAVE"]
+    fix = " --auto-correct" if setting?(:fix_on_save)
     rubocop_type_regex = %r{([WC]:) (\w+)/(\w+)}
     rubocop_docs_lambda = lambda do |match|
       rubocop_type_regex =~ match

@@ -5,6 +5,10 @@ $LOAD_PATH << "#{ENV["TM_BUNDLE_SUPPORT"]}/lib"
 module Linter
   module_function
 
+  def setting?(key)
+    ENV["LINTER_#{key.to_s.upcase}"].to_s == "true"
+  end
+
   def strip_trailing_whitespace!(write: true)
     return if filepath.empty?
 
@@ -36,18 +40,18 @@ module Linter
   end
 
   def lint_strip_ensure_on_save
-    if ENV["LINTER_STRIP_WHITESPACE_ON_SAVE"]
-      if ENV["LINTER_ENSURE_NEWLINE_ON_SAVE"]
+    if setting?(:strip_whitespace_on_save)
+      if setting?(:ensure_newline_on_save)
         strip_trailing_whitespace!(write: false)
         ensure_trailing_newline!
       else
         strip_trailing_whitespace!
       end
-    elsif ENV["LINTER_ENSURE_NEWLINE_ON_SAVE"]
+    elsif setting?(:ensure_newline_on_save)
       ensure_trailing_newline!
     end
 
-    lint(manually_requested: false) if ENV["LINTER_LINT_ON_SAVE"]
+    lint(manually_requested: false) if setting?(:lint_on_save)
   end
 
   def lint(manually_requested: true)
