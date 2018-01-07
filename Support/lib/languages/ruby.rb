@@ -22,15 +22,15 @@ module Linter
 
   def rubocop
     fix = " --auto-correct" if setting?(:fix_on_save)
-    rubocop_type_regex = %r{([WC]:) (\w+)/(\w+)}
+    rubocop_type_regex = %r{([WC]:)( \[Corrected\])? (\w+)/(\w+)}
     rubocop_docs_lambda = lambda do |match|
       rubocop_type_regex =~ match
-      _, type, category, check = Regexp.last_match.to_a
+      _, type, corrected, category, check = Regexp.last_match.to_a
       category_down = category.downcase
       check_down = check.downcase
       url = "https://rubocop.readthedocs.io/en/latest/cops_#{category_down}/##{category_down}#{check_down}"
       href = "javascript:TextMate.system('open #{url}', null);"
-      "#{type} <a href=\"#{href}\">#{category}/#{check}</a>"
+      "#{type}#{corrected} <a href=\"#{href}\">#{category}/#{check}</a>"
     end
     {
       name: "RuboCop",
