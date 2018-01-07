@@ -13,9 +13,8 @@ module Linter
     tm_scope.split(" ")
   end
 
-
   def setting?(key)
-    tm_scopes.include?("attr.linter.#{key.to_s.gsub("_", "-")}")
+    tm_scopes.include?("attr.linter.#{key.to_s.tr("_", "-")}")
   end
 
   def strip_trailing_whitespace!(write: true)
@@ -138,7 +137,18 @@ module Linter
         unless output_command.include?(filepath)
           output_command += " '#{filepath}'"
         end
+        env = settings[:output_command_env]
+        if env
+          old_env = {}
+          env.each do |key, value|
+            key = key.to_s
+            old_env[key] = ENV.delete(key)
+            ENV[key] = value
+          end
+        end
         `#{output_command} 2>&1`
+      ensure
+        ENV.update(old_env) if env
       end
 
       if (line_column_match = settings[:line_column_match])
