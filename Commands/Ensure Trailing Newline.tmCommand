@@ -11,13 +11,19 @@ Linter.ensure_trailing_newline!
 </string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>name</key>
 	<string>Ensure Trailing Newline</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
+	<key>outputFormat</key>
+	<string>text</string>
 	<key>outputLocation</key>
 	<string>discard</string>
 	<key>uuid</key>
 	<string>B6CC0FDC-0705-4435-AAFA-BC45A8E9A0E7</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

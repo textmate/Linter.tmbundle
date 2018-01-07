@@ -5,8 +5,17 @@ $LOAD_PATH << "#{ENV["TM_BUNDLE_SUPPORT"]}/lib"
 module Linter
   module_function
 
+  def tm_scope
+    ENV["TM_SCOPE"].to_s
+  end
+
+  def tm_scopes
+    tm_scope.split(" ")
+  end
+
+
   def setting?(key)
-    ENV["LINTER_#{key.to_s.upcase}"].to_s == "true"
+    tm_scopes.include?("attr.linter.#{key.to_s.gsub("_", "-")}")
   end
 
   def strip_trailing_whitespace!(write: true)
@@ -57,7 +66,6 @@ module Linter
   def lint(manually_requested: true)
     return if filepath.empty?
 
-    tm_scope = ENV["TM_SCOPE"].to_s
     language_found = false
     language_selectors = {
       bash: { select: /source\.shell/ },
@@ -80,7 +88,7 @@ module Linter
     return if language_found
     return unless manually_requested
 
-    first_scope = tm_scope.split(" ").first
+    first_scope = tm_scopes.first
     puts "Error: no Linter found for #{first_scope}! Please consider submitting a pull request to https://github.com/MikeMcQuaid/Linter.tmbundle to add one."
   end
 
