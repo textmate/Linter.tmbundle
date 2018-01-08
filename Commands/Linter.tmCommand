@@ -20,6 +20,8 @@ Linter.lint</string>
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.shell, source.json, text.html.markdown, source.ruby</string>
 	<key>uuid</key>
 	<string>26A8FF38-100D-4E72-9ADC-1EF964095C44</string>
 	<key>version</key>
