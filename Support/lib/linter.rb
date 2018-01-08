@@ -105,7 +105,9 @@ module Linter
     @which_cache.fetch(name) do
       env = name.upcase.tr("-", "_")
       name = ENV["LINTER_#{env}"] || ENV[env] || name
-      `which '#{name}'`.chomp
+      which = `which '#{name}'`.chomp
+      next if which.empty?
+      which
     end
   end
 
