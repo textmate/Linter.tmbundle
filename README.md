@@ -11,6 +11,24 @@ Provides Linting functionality to TextMate to make it easier to write better qua
   - `bundle.linter.ensure-newline-on-save` automatically adds a training newline on save
   - `bundle.linter.fix-on-save` automatically fixes lints if possible (e.g. with RuboCop)
 
+## Linters
+### Bash
+- `bash -n` (found in `LINTER_BASH`, `BASH` or `PATH` environment variables)
+- [`shellcheck`](https://www.shellcheck.net)  (`brew install shellcheck`, found in `LINTER_SHELLCHECK`, `SHELLCHECK` or `PATH` environment variables)
+
+### JSON
+- `JSON.parse` in Ruby (found in `LINTER_RUBY`, `RUBY`  or `PATH` environment variables)
+- [`jsonlint`](https://jsonlint.com) (`brew install jsonlint`, found in `LINTER_JSONLINT`, `JSONLINT` or `PATH` environment variables)
+
+### Markdown
+- [list of hedge words](https://github.com/MikeMcQuaid/Linter.tmbundle/blob/master/Support/lib/hedge_words.rb)
+- [`alex`](https://github.com/wooorm/alex) (`brew install alex`, found in `LINTER_ALEX`, `ALEX` or `PATH` environment variables)
+- [`write-good`](https://github.com/wooorm/alex) (`brew install write-good`, found in `LINTER_ALEX`, `ALEX` or `PATH` environment variables)
+
+### Ruby
+- `ruby -wc` (found in `LINTER_RUBY`, `RUBY`  or `PATH` environment variables)
+- [`rubocop`](http://rubocop.readthedocs.io/en/latest/) (`gem install --user rubocop`, found in `LINTER_RUBOCOP`, `RUBOCOP` or `PATH` environment variables)
+
 ## Installation
 
 ```bash
