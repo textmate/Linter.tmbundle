@@ -23,7 +23,7 @@ Linter.lint_strip_ensure_on_save</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
 	<key>scope</key>
-	<string>attr.linter.lint-on-save, attr.linter.strip-whitespace-on-save, attr.linter.ensure_newline_on_save</string>
+	<string>bundle.linter.lint-on-save, bundle.linter.strip-whitespace-on-save, bundle.linter.ensure_newline_on_save</string>
 	<key>uuid</key>
 	<string>483D338D-EC9F-4777-92C0-DFCBE02BD3A0</string>
 	<key>version</key>

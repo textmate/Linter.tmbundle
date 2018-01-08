@@ -14,7 +14,7 @@ module Linter
   end
 
   def setting?(key)
-    tm_scopes.include?("attr.linter.#{key.to_s.tr("_", "-")}")
+    tm_scopes.include?("bundle.linter.#{key.to_s.tr("_", "-")}")
   end
 
   def strip_trailing_whitespace!(write: true)
@@ -104,7 +104,7 @@ module Linter
     @which_cache ||= {}
     @which_cache.fetch(name) do
       env = name.upcase.tr("-", "_")
-      name = ENV["LINT_#{env}"] || ENV[env] || name
+      name = ENV["LINTER_#{env}"] || ENV[env] || name
       `which '#{name}'`.chomp
     end
   end
