@@ -36,8 +36,6 @@ module Linter
       name: "RuboCop",
       version: `'#{which("rubocop")}' --version`,
       output_command: "'#{which("rubocop")}' --format=emacs --display-cop-names#{fix}",
-      # hide parser gem Ruby version warnings (and all other Ruby warnings)
-      output_command_env: { RUBYOPT: "-W0" },
       line_column_match: /#{filepath}:(\d+):(\d+): /,
       extra_gsubs: {
         rubocop_type_regex => rubocop_docs_lambda,
