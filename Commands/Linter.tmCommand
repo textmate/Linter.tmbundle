@@ -13,7 +13,7 @@ Linter.lint</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>name</key>
-	<string>Lint</string>
+	<string>Lint Document</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
 	<key>outputFormat</key>
