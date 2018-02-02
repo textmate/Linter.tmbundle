@@ -8,6 +8,17 @@
 	<string>Mike McQuaid</string>
 	<key>description</key>
 	<string>Linting functionality to make it easier to write better quality code.</string>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>26A8FF38-100D-4E72-9ADC-1EF964095C44</string>
+			<string>B6CC0FDC-0705-4435-AAFA-BC45A8E9A0E7</string>
+			<string>5983C2DD-EB3D-4282-AF06-DC0CC94DD9D0</string>
+			<string>------------------------------------</string>
+			<string>483D338D-EC9F-4777-92C0-DFCBE02BD3A0</string>
+		</array>
+	</dict>
 	<key>name</key>
 	<string>Linter</string>
 	<key>uuid</key>
