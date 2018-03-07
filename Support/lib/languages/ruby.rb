@@ -21,7 +21,9 @@ module Linter
   end
 
   def rubocop
-    fix = " --auto-correct" if setting?(:fix_on_save)
+    if setting?(:fix_on_save) && !filepath.include?("/vendor/ruby/gems/")
+      fix = " --auto-correct"
+    end
     rubocop_type_regex = %r{([WC]:)( \[Corrected\])? (\w+)/(\w+)}
     rubocop_docs_lambda = lambda do |match|
       rubocop_type_regex =~ match
