@@ -21,7 +21,7 @@ module Linter
         /⚠ \d+ warnings?/ => "",
         /warning\s+/ => "",
         %r{^(\.\./?)*#{filepath}} => "",
-        filename => "",
+        /^#{filename}$/ => "",
         ": no issues found" => "",
       },
     }
